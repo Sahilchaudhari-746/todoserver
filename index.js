@@ -11,7 +11,7 @@ app.use(cors({
 app.use(express.json()); // Middleware for JSON body parsing
 
 // Use task routes
-app.use('/tasks', taskRoutes);
+app.use('/', taskRoutes);
 
 // Start the server
 app.listen(process.env.PORT || 5000, () => { // Use process.env.PORT for serverless platforms
