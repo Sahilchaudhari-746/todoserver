@@ -2,7 +2,6 @@ const express = require('express');
 const taskRoutes = require('./routes/taskRoutes'); // Make sure the path is correct
 const app = express();
 const cors = require('cors'); 
-const PORT = 5000; // Directly setting the port without using process.env
 
 // Use CORS with specific origin
 app.use(cors({
@@ -15,6 +14,6 @@ app.use(express.json()); // Middleware for JSON body parsing
 app.use('/tasks', taskRoutes);
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(process.env.PORT || 5000, () => { // Use process.env.PORT for serverless platforms
+    console.log(`Server is running`);
 });
